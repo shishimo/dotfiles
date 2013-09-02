@@ -2,7 +2,7 @@
 export EDITOR='vi'
 
 # Prompt
-PS1='\[\e[1;32m\][\u@\h]\$\[\e[0m\] '
+PS1='\[\e[1;32m\][\u:\W]\$\[\e[0m\] '
 
 # Color
 export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -14,6 +14,14 @@ export HISTCONTROL='erasedups'
 
 # less
 export LESSCHARSET=utf-8
+
+# grep
+export GREP_COLOR='01;31'
+export GREP_OPTIONS='--color=always'
+
+# port
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH:$HOME/android-sdks/platform-tools
+export MANPATH=/opt/local/man:$MANPATH
  
 # aliases
 alias ls='ls -GCF'
@@ -22,4 +30,4 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias pd='pushd'
 alias tree='tree -NC'
-alias gitinfo='git config --list'
+alias less='less -R'
