@@ -1,9 +1,9 @@
-DOT_FILES = .bashrc .vimrc .vim
+DOT_FILES = .bashrc .vimrc .vim .gitconfig
 
-all: bash vim 
+all: bash git vim
 
 bash: $(foreach f, $(filter .bash%, $(DOT_FILES)), link-dot-file-$(f))
-
+git: $(foreach f, $(filter .gitconfig, $(DOT_FILES)), link-dot-file-$(f))
 vim: $(foreach f, $(filter .vim%, $(DOT_FILES)), link-dot-file-$(f))
   
 .PHONY: clean
