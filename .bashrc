@@ -1,3 +1,7 @@
+# port
+export PATH=$PATH:/opt/local/bin:/opt/local/sbin:$HOME/android-sdks/platform-tools:$HOME/android-sdks/tools
+export MANPATH=/opt/local/man:$MANPATH
+
 # Editor
 export EDITOR='vi'
 
@@ -16,13 +20,11 @@ export HISTCONTROL='erasedups'
 export LESSCHARSET=utf-8
 
 # grep
-export GREP_COLOR='01;31'
-export GREP_OPTIONS='--color=always'
+# 有効にするとphonegapが動かなくなるので
+# コメントアウト
+#export GREP_COLOR='01;31'
+#export GREP_OPTIONS='--color=always'
 
-# port
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH:$HOME/android-sdks/platform-tools
-export MANPATH=/opt/local/man:$MANPATH
- 
 # aliases
 alias ls='ls -GCF'
 alias cp='cp -i'
@@ -31,3 +33,9 @@ alias rm='rm -i'
 alias pd='pushd'
 alias tree='tree -NC'
 alias less='less -R'
+
+# JAVA
+if [ $OSTYPE = "darwin13" ];
+then
+export JAVA_HOME="$(/usr/libexec/java_home)"
+fi

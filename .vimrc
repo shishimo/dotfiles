@@ -1,9 +1,21 @@
 set nocompatible " must be first!
 
+" -------------------------------------------------------------------------
+" Vundle設定
+" -------------------------------------------------------------------------
+filetype off
+set rtp+=~/.vim/vundle.git/
+call vundle#rc()
+
+" Plugin
+" インストール     :BundleInstall
+" アンインストール :BundleClean
+Bundle 'Xdebug'
+Bundle 'YankRing.vim'
+
+filetype plugin indent on
 
 colorscheme darkblue
-nnoremap j gj
-nnoremap k gk
 set expandtab
 set shiftround
 set autoindent
@@ -33,52 +45,30 @@ set fileencoding=japan
 set fileencodings=utf-8
 
 " -------------------------------------------------------------------------
-" ハードタブをめだたせる
-"
+" 移動
 " -------------------------------------------------------------------------
-"   set listchars=tab:>-
-"   set list
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+nnoremap j gj          
+nnoremap k gk
 
 " -------------------------------------------------------------------------
 " 入力補完
-"
 " -------------------------------------------------------------------------
-       inoremap ,date <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
-       iabbrev ,# # =========================================================================
-       iabbrev ## # -------------------------------------------------------------------------
+inoremap {} {}<LEFT>
+inoremap [] []<LEFT>
+inoremap () ()<LEFT>
+inoremap "" ""<LEFT>
+inoremap '' ''<LEFT>
+inoremap `` ``<LEFT>
+inoremap <> <><LEFT>
+inoremap <leader>date <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 
 " -------------------------------------------------------------------------
-" perl test
-"
+" メモ
+" <leader>は\(バックスラッシュ)
 " -------------------------------------------------------------------------
-       augroup filetypedetect
-       autocmd! BufNewFile,BufRead *.t setf perl
-       augroup END
-
-" -------------------------------------------------------------------------
-" minibufexpl.vim の設定
-"
-" -------------------------------------------------------------------------
-   let g:miniBufExplMapWindowNavVim = 1
-   let g:miniBufExplMapWindowNavArrows = 1
-   let g:miniBufExplMapCTabSwitchBuffs = 1
-
-" -------------------------------------------------------------------------
-" 自動cd
-" ref. http://nanasi.jp/articles/vim/cd_vim.html
-"
-" -------------------------------------------------------------------------
-   au BufEnter * execute ":lcd " . expand("%:p:h")
-
-" -------------------------------------------------------------------------
-" ChangeLog
-"
-" -------------------------------------------------------------------------
-   let g:changelog_username = 'tokuhirom <tokuhirom@gmail.com>'
-
-" -------------------------------------------------------------------------
-" matchit
-" ref. http://nanasi.jp/articles/vim/matchit_vim.html
-"
-" -------------------------------------------------------------------------
-   source $VIMRUNTIME/macros/matchit.vim
