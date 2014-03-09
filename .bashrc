@@ -34,8 +34,12 @@ alias pd='pushd'
 alias tree='tree -NC'
 alias less='less -R'
 
-# JAVA
-if [ $OSTYPE = "darwin13" ];
+# OS別設定
+OS=`uname`
+if [ $OS = "Darwin" ];
 then
+
+# JAVA
 export JAVA_HOME="$(/usr/libexec/java_home)"
+
 fi
