@@ -13,6 +13,7 @@ call vundle#rc()
 Bundle 'tpope/vim-surround'
 Bundle 'Xdebug'
 Bundle 'YankRing.vim'
+Bundle 'othree/html5.vim'
 
 filetype plugin indent on
 
