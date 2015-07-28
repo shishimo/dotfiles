@@ -14,6 +14,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'Xdebug'
 Bundle 'YankRing.vim'
 Bundle 'othree/html5.vim'
+Bundle 'vim-scripts/Align'
 
 filetype plugin indent on
 
@@ -113,6 +114,13 @@ inoremap '' ''<LEFT>
 inoremap `` ``<LEFT>
 inoremap <> <><LEFT>
 inoremap <leader>date <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
+
+" -------------------------------------------------------------------------
+" PHP
+" -------------------------------------------------------------------------
+let php_folding=1
+let php_sql_query=1
+let php_htmlInStrings=1
 
 " -------------------------------------------------------------------------
 " メモ
