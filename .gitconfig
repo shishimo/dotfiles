@@ -13,3 +13,5 @@
 	info = config --list
 [core]
 	editor = vim
+[http]
+	postBuffer = 524288000
