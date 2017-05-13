@@ -3,7 +3,7 @@ export PATH=$PATH:/opt/local/bin:/opt/local/sbin:$HOME/android-sdks/platform-too
 export MANPATH=/opt/local/man:$MANPATH
 
 # Editor
-export EDITOR='vi'
+export EDITOR='vim'
 
 # Prompt
 PS1='\[\e[1;32m\][\u:\W]\$\[\e[0m\] '
@@ -20,10 +20,8 @@ export HISTCONTROL='erasedups'
 export LESSCHARSET=utf-8
 
 # grep
-# 有効にするとphonegapが動かなくなるので
-# コメントアウト
-#export GREP_COLOR='01;31'
-#export GREP_OPTIONS='--color=always'
+export GREP_COLOR='01;31'
+export GREP_OPTIONS='--color=always'
 
 # aliases
 alias ls='ls -GCF'
@@ -43,3 +41,9 @@ then
 export JAVA_HOME="$(/usr/libexec/java_home)"
 
 fi
+
+# ctrl+fで次の単語に移動
+bind '"\C-f": forward-word'
+
+# ctrl+bで前の単語に移動
+bind '"\C-b": backward-word'
