@@ -24,3 +24,6 @@ submodule:
 		git submodule init $$i; \
 		git submodule update $$i; \
 	done
+
+xcode:
+	@cp xcode/Custom.idekeybindings $(HOME)/Library/Developer/Xcode/UserData/KeyBindings

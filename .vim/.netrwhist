@@ -1,4 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/shishimo/.android'
 let g:netrw_dirhist_2='/Users/shishimo/Dev/phonegap/hello/platforms/ios/cordova'
+let g:netrw_dirhist_3='/Users/shishimo/Development/buddy/ios/buddy'
+let g:netrw_dirhist_4='/Users/shishimo/Development/buddy/ios/buddy/Base.lproj'
+let g:netrw_dirhist_5='/Users/shishimo/Development/buddy/ios/buddy/ja.lproj'
+let g:netrw_dirhist_6='/Users/shishimo/Development/buddy/buddy-android/app'
+let g:netrw_dirhist_7='/Users/shishimo/Development'
+let g:netrw_dirhist_8='/Users/shishimo/Development/go'
