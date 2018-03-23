@@ -1,6 +1,8 @@
 # port
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin:$HOME/android-sdks/platform-tools:$HOME/android-sdks/tools
 export MANPATH=/opt/local/man:$MANPATH
+export GOPATH=$HOME/Development/go
+export PATH=$PATH:$HOME/bin:$HOME/bin/dex2jar
 
 # Editor
 export EDITOR='vim'
