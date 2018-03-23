@@ -1,30 +1,6 @@
 set nocompatible " must be first!
 
 " -------------------------------------------------------------------------
-" Vundle設定
-" -------------------------------------------------------------------------
-filetype off
-set rtp+=~/.vim/vundle.git/
-call vundle#rc()
-
-" Plugin
-" インストール     :BundleInstall
-" アンインストール :BundleClean
-Bundle 'tpope/vim-surround'
-Bundle 'Xdebug'
-Bundle 'YankRing.vim'
-Bundle 'othree/html5.vim'
-Bundle 'vim-scripts/Align'
-
-filetype plugin indent on
-
-" -------------------------------------------------------------------------
-" YankRing.vimの設定
-" -------------------------------------------------------------------------
-let g:yankring_history_dir = $HOME.'/.vim/'
-let g:yankring_history_file = '.yankring_history'
-
-" -------------------------------------------------------------------------
 " インデント・タブ
 " -------------------------------------------------------------------------
 set autoindent    " 前の行のインデントを引き継ぐ
