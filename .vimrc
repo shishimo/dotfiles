@@ -1,4 +1,25 @@
-set nocompatible " must be first!
+if &compatible
+  set nocompatible
+endif
+
+" -------------------------------------------------------------------------
+" dein.vim
+" -------------------------------------------------------------------------
+
+let s:deinDir    = ! exists('s:deinDir') ? $HOME . '/.vim/dein.vim' : s:deinDir
+let &runtimepath = &runtimepath . ',' . s:deinDir . '/repos/github.com/Shougo/dein.vim'
+
+if dein#load_state(s:deinDir)
+  call dein#begin(s:deinDir)
+
+  call dein#add('Shougo/dein.vim')
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+filetype plugin indent on
+syntax enable
 
 " -------------------------------------------------------------------------
 " インデント・タブ
