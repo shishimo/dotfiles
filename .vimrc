@@ -83,7 +83,6 @@ set showmatch
 set matchpairs+=<:>
 set matchtime=1
 
-
 " -------------------------------------------------------------------------
 " 履歴・バックアップ
 " -------------------------------------------------------------------------
@@ -112,6 +111,42 @@ inoremap '' ''<LEFT>
 inoremap `` ``<LEFT>
 inoremap <> <><LEFT>
 inoremap <leader>date <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
+
+" -------------------------------------------------------------------------
+" CTAGS
+" -------------------------------------------------------------------------
+
+" <C-]>    タグジャンプ
+" <C-t>    タグ戻り
+" <C-w+]>  別ウィンドウでタグジャンプ
+" g, <C-]> タグジャンプ候補表示
+
+" .tagsファイルをカレントディレクトリから$HOMEまで検索、tags設定
+:set tags=.tags;$HOME
+
+" ctagsコマンドを実行して、現在読み込んでる.tagsファイルを上書きする関数
+function! s:execute_ctags() abort
+  " 探すタグファイル名
+  let tag_name = '.tags'
+  " ディレクトリを遡り、タグファイルを探し、パス取得
+  let tags_path = findfile(tag_name, '.;')
+  " タグファイルパスが見つからなかった場合
+  if tags_path ==# ''
+    return
+  endif
+
+  " タグファイルのディレクトリパスを取得
+  " `:p:h`の部分は、:h filename-modifiersで確認
+  let tags_dirpath = fnamemodify(tags_path, ':p:h')
+  " 見つかったタグファイルのディレクトリに移動して、ctagsをバックグラウンド実行（エラー出力破棄）
+  execute 'silent !cd' tags_dirpath '&& ctags -R -f' tag_name '2> /dev/null &'
+endfunction
+
+" ファイル保存すると同時にctagsを実行
+augroup ctags
+  autocmd!
+  autocmd BufWritePost * call s:execute_ctags()
+augroup END
 
 " -------------------------------------------------------------------------
 " PHP
