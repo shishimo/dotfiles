@@ -12,6 +12,7 @@ let &runtimepath = &runtimepath . ',' . s:deinDir . '/repos/github.com/Shougo/de
 if dein#load_state(s:deinDir)
   call dein#begin(s:deinDir)
 
+  call dein#add('othree/yajs.vim')
   call dein#add('Shougo/dein.vim')
 
   call dein#end()
@@ -118,6 +119,11 @@ inoremap <leader>date <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 let php_folding=1
 let php_sql_query=1
 let php_htmlInStrings=1
+
+" -------------------------------------------------------------------------
+" javascript
+" -------------------------------------------------------------------------
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
 " -------------------------------------------------------------------------
 " メモ
