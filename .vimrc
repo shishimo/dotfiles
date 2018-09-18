@@ -98,6 +98,41 @@ inoremap <> <><LEFT>
 inoremap <leader>date <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 
 " -------------------------------------------------------------------------
+" dein
+" -------------------------------------------------------------------------
+" Add the dein installation directory into runtimepath
+set runtimepath+=~/.vim/.dein/repos/github.com/Shougo/dein.vim
+
+if dein#load_state('~/.vim/.dein')
+  call dein#begin('~/.vim/.dein')
+
+  call dein#add('~/.vim/.dein')
+  call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Open vim and install dein
+" :call dein#install()
+
+call dein#add('Shougo/neco-syntax')
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+" -------------------------------------------------------------------------
+" deoplete
+" -------------------------------------------------------------------------
+let g:deoplete#enable_at_startup = 1
+
+" -------------------------------------------------------------------------
 " PHP
 " -------------------------------------------------------------------------
 let php_folding=1
@@ -108,6 +143,11 @@ let php_htmlInStrings=1
 " filetype
 " -------------------------------------------------------------------------
 filetype plugin indent on
+
+" -------------------------------------------------------------------------
+" syntax
+" -------------------------------------------------------------------------
+syntax enable
 
 " -------------------------------------------------------------------------
 " メモ
