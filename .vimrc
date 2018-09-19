@@ -61,9 +61,9 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 set showcmd " 入力中のコマンド表示
 
 " -------------------------------------------------------------------------
-" 括弧 
+" 括弧
 " -------------------------------------------------------------------------
-set showmatch
+"set showmatch
 set matchpairs+=<:>
 set matchtime=1
 
@@ -113,14 +113,25 @@ if dein#load_state('~/.vim/.dein')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
+  call dein#add('Shougo/neco-syntax')
+
+  " For swift
+  "
+  " 補完
+  call dein#add('landaire/deoplete-swift')
+
+  " Syntax check and filetype for swift
+  call dein#add('kballard/vim-swift')
+
+  " 実行
+  call dein#add('thinca/vim-quickrun')
+
   call dein#end()
   call dein#save_state()
 endif
 
 " Open vim and install dein
 " :call dein#install()
-
-call dein#add('Shougo/neco-syntax')
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
@@ -130,7 +141,11 @@ endif
 " -------------------------------------------------------------------------
 " deoplete
 " -------------------------------------------------------------------------
+" deopleteの自動補完on
 let g:deoplete#enable_at_startup = 1
+
+" swiftの自動補完on
+let g:deoplete#sources#swift#daemon_autostart = 1
 
 " -------------------------------------------------------------------------
 " PHP
@@ -138,6 +153,22 @@ let g:deoplete#enable_at_startup = 1
 let php_folding=1
 let php_sql_query=1
 let php_htmlInStrings=1
+
+" -------------------------------------------------------------------------
+" quickrun
+" -------------------------------------------------------------------------
+" normalモードで \r で実行
+
+" 実行結果を下のウィンドウに表示する。実行時間も表示する。
+let g:quickrun_config = {'*': {'hook/time/enable': '1'}}
+let g:quickrun_config['swift'] = {
+\ 'command': 'xcrun',
+\ 'cmdopt': 'swift',
+\ 'exec': '%c %o %s',
+\}
+
+" quickrunの実行結果ウィンドウを右側に表示する
+set splitright
 
 " -------------------------------------------------------------------------
 " filetype
