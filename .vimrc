@@ -67,7 +67,6 @@ set showcmd " 入力中のコマンド表示
 set matchpairs+=<:>
 set matchtime=1
 
-
 " -------------------------------------------------------------------------
 " 履歴・バックアップ
 " -------------------------------------------------------------------------
@@ -126,6 +125,11 @@ if dein#load_state('~/.vim/.dein')
   " 実行
   call dein#add('thinca/vim-quickrun')
 
+  " Lint
+  if has('job') && has('channel') && has('timers')
+    call dein#add('w0rp/ale')
+  endif
+
   call dein#end()
   call dein#save_state()
 endif
@@ -169,6 +173,16 @@ let g:quickrun_config['swift'] = {
 
 " quickrunの実行結果ウィンドウを右側に表示する
 set splitright
+
+" -------------------------------------------------------------------------
+" ale
+" -------------------------------------------------------------------------
+
+" ファイルを開いたときにチェックしない
+let g:ale_lint_on_error = 0
+
+" メッセージのフォーマットをlinterが表示されるように変更
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 
 " -------------------------------------------------------------------------
 " filetype
