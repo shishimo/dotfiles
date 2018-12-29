@@ -1,8 +1,11 @@
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=$HOME/.rvm/bin:$PATH
 export EDITORP=nvim #エディタをvimに設定
 export LANG=ja_JP.UTF-8 #文字コードをUTF-8に設定
+
+# rbenv
+eval "$(rbenv init -)"
 
 ##
 # Completion
