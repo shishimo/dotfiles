@@ -1,12 +1,13 @@
-DOT_FILES := .profile .bashrc .vimrc .vim .gitconfig
+DOT_FILES := .profile .bashrc .vimrc .vim .gitconfig .zshrc
 GIT_SUBMODULES := $(shell awk '/path =/ {print $$3}' .gitmodules)
 
-all: vim-dein-install profile bash git vim
+all: vim-dein-install profile bash git vim zsh
 
 profile: $(foreach f, $(filter .profile, $(DOT_FILES)), link-dot-file-$(f))
 bash: $(foreach f, $(filter .bash%, $(DOT_FILES)), link-dot-file-$(f))
 git: $(foreach f, $(filter .gitconfig, $(DOT_FILES)), link-dot-file-$(f))
 vim: $(foreach f, $(filter .vim%, $(DOT_FILES)), link-dot-file-$(f))
+zsh: $(foreach f, $(filter .zsh%, $(DOT_FILES)), link-dot-file-$(f))
   
 link-dot-file-%: %
 	@echo "Create Symlink $< => $(HOME)/$<"
