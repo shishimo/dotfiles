@@ -12,7 +12,7 @@
 	last = log -1 HEAD --
 	info = config --list
 [core]
-	editor = vim
+	editor = nvim
 [http]
 	postBuffer = 524288000
 [credential]

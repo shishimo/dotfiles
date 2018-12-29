@@ -87,6 +87,7 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 alias vi='nvim'
+alias vim='nvim'
 alias mkdir='mkdir -p'
 
 ##
