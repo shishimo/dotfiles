@@ -1,6 +1,7 @@
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$HOME/.rvm/bin:$PATH
+export PATH=$HOME/.nodenv/bin:$PATH
 export EDITORP=nvim #エディタをvimに設定
 export LANG=ja_JP.UTF-8 #文字コードをUTF-8に設定
 
@@ -96,3 +97,10 @@ alias mkdir='mkdir -p'
 # Ctrl+rでヒストリーのインクリメンタルサーチ、Ctrl+sで逆順
 bindkey '^r' history-incremental-pattern-search-backward
 bindkey '^s' history-incremental-pattern-search-forward
+
+##
+# Node
+##
+
+# nodeenv
+eval "$(nodenv init -)"
